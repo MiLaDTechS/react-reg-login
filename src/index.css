@@ -1,5 +1,21 @@
-a { cursor: pointer; }
+a {
+    cursor: pointer;
+}
 
 .app-container {
     min-height: 350px;
+}
+
+.customer-table td {
+    font-size: 14px;
+    vertical-align: middle;
+}
+
+.customer-table th {
+    font-size: 16px;
+}
+
+.customer-table th,
+td {
+    white-space: nowrap;
 }

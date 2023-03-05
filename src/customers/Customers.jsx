@@ -1,13 +1,13 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import { List, AddEdit } from './';
+import { List, AddEdit } from '.';
 
-export { Users };
+export { Customers };
 
-function Users({ match }) {
+function Customers({ match }) {
     const { path } = match;
-    
+
     return (
         <div className="p-4">
             <div className="container">

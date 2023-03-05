@@ -5,7 +5,7 @@ import { authAtom } from '_state';
 import { Nav, Alert, PrivateRoute } from '_components';
 import { history } from '_helpers';
 import { Home } from 'home';
-import { Users } from 'users';
+import { Customers } from 'customers';
 import { Account } from 'account';
 
 export { App };
@@ -20,7 +20,7 @@ function App() {
                 <Alert />
                 <Switch>
                     <PrivateRoute exact path="/" component={Home} />
-                    <PrivateRoute path="/users" component={Users} />
+                    <PrivateRoute path="/customers" component={Customers} />
                     <Route path="/account" component={Account} />
                     <Redirect from="*" to="/" />
                 </Switch>

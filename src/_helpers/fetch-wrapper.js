@@ -30,12 +30,12 @@ function useFetchWrapper() {
             return fetch(url, requestOptions).then(handleResponse);
         }
     }
-    
+
     // helper functions
-    
+
     function authHeader(url) {
         // return auth header with jwt if user is logged in and request is to the api url
-        const token = auth?.token;
+        const token = auth?.accessToken;
         const isLoggedIn = !!token;
         const isApiUrl = url.startsWith(process.env.REACT_APP_API_URL);
         if (isLoggedIn && isApiUrl) {
@@ -44,11 +44,11 @@ function useFetchWrapper() {
             return {};
         }
     }
-    
+
     function handleResponse(response) {
         return response.text().then(text => {
             const data = text && JSON.parse(text);
-            
+
             if (!response.ok) {
                 if ([401, 403].includes(response.status) && auth?.token) {
                     // auto logout if 401 Unauthorized or 403 Forbidden response returned from api
@@ -56,13 +56,13 @@ function useFetchWrapper() {
                     setAuth(null);
                     history.push('/account/login');
                 }
-    
+
                 const error = (data && data.message) || response.statusText;
                 alertActions.error(error);
                 return Promise.reject(error);
             }
-    
+
             return data;
         });
-    }    
+    }
 }

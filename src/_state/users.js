@@ -10,7 +10,7 @@ const userAtom = atom({
     default: null
 });
 
-export { 
+export {
     usersAtom,
     userAtom
 };
